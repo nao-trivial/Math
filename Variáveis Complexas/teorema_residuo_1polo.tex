@@ -1,0 +1,80 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+
+% Configuração da página
+\geometry{a4paper, margin=2.5cm}
+
+% Título e autor
+\title{Demonstração do Teorema do Resíduo para uma Singularidade}
+\author{}
+\date{}
+
+% Documento
+\begin{document}
+
+\maketitle
+
+\section*{Teorema do Resíduo}
+
+Seja $f(z)$ uma função meromorfa em uma região $U$, com uma singularidade isolada $z_0$ dentro de uma curva simples e fechada $\gamma$, orientada no sentido anti-horário. O Teorema do Resíduo afirma que:
+\[
+\int_{\gamma} f(z) \, dz = 2\pi i \, \text{Res}(f, z_0),
+\]
+onde $\text{Res}(f, z_0)$ é o resíduo de $f(z)$ na singularidade $z_0$.
+
+\section*{Demonstração}
+
+\subsection*{1. Expansão de Laurent}
+Perto da singularidade $z_0$, a função $f(z)$ pode ser expandida em uma série de Laurent:
+\[
+f(z) = \sum_{n=-\infty}^\infty a_n (z - z_0)^n,
+\]
+onde os coeficientes $a_n$ são dados por:
+\[
+a_n = \frac{1}{2\pi i} \int_{\gamma} \frac{f(w)}{(w - z_0)^{n+1}} \, dw.
+\]
+O termo $a_{-1}$ é conhecido como o \textbf{resíduo} de $f(z)$ em $z_0$:
+\[
+\text{Res}(f, z_0) = a_{-1}.
+\]
+
+\subsection*{2. Integral de $f(z)$ ao longo de $\gamma$}
+Agora, consideremos a integral de $f(z)$ ao longo da curva $\gamma$:
+\[
+\int_{\gamma} f(z) \, dz = \int_{\gamma} \sum_{n=-\infty}^\infty a_n (z - z_0)^n \, dz.
+\]
+Como a integral é linear, podemos trocar a soma e a integral:
+\[
+\int_{\gamma} f(z) \, dz = \sum_{n=-\infty}^\infty a_n \int_{\gamma} (z - z_0)^n \, dz.
+\]
+
+\subsection*{3. Avaliação dos termos da série}
+- Para $n \neq -1$, as potências $(z - z_0)^n$ resultam em funções holomorfas no interior de $\gamma$. Pelo Teorema de Cauchy, a integral ao longo de $\gamma$ é zero:
+\[
+\int_{\gamma} (z - z_0)^n \, dz = 0, \quad \text{para } n \neq -1.
+\]
+- Para $n = -1$, a integral se torna:
+\[
+\int_{\gamma} (z - z_0)^{-1} \, dz = \int_{\gamma} \frac{1}{z - z_0} \, dz.
+\]
+Esta integral é conhecida e resulta em:
+\[
+\int_{\gamma} \frac{1}{z - z_0} \, dz = 2\pi i.
+\]
+
+\subsection*{4. Resultado final}
+A única contribuição para a soma vem do termo com $n = -1$, portanto:
+\[
+\int_{\gamma} f(z) \, dz = a_{-1} \cdot 2\pi i.
+\]
+Substituindo $a_{-1} = \text{Res}(f, z_0)$, obtemos:
+\[
+\int_{\gamma} f(z) \, dz = 2\pi i \, \text{Res}(f, z_0).
+\]
+
+\section*{Conclusão}
+Assim, mostramos que a integral de $f(z)$ ao longo de uma curva fechada $\gamma$ é proporcional ao resíduo da função $f(z)$ na singularidade $z_0$, escalada pelo fator $2\pi i$.
+
+\end{document}
