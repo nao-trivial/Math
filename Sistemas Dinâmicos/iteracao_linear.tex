@@ -1,0 +1,83 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{Iteração Linear - Resumo e Exercícios}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Introdução}
+A \textbf{iteração linear} é uma técnica usada para encontrar aproximações para raízes de funções ou soluções de sistemas lineares. Consiste em construir uma sequência de aproximações usando uma fórmula iterativa da forma:
+
+\[
+x_{k+1} = g(x_k),
+\]
+
+onde $g(x)$ é uma função definida no intervalo de interesse e $x_k$ é a aproximação na $k$-ésima iteração.
+
+\section*{Convergência da Iteração}
+A iteração $x_{k+1} = g(x_k)$ converge para uma solução $x^*$ se:
+\begin{enumerate}
+    \item $x^*$ é ponto fixo de $g(x)$, ou seja, $g(x^*) = x^*$;
+    \item A função $g(x)$ é contínua e diferenciável no intervalo considerado;
+    \item $|g'(x)| < 1$ no intervalo de interesse.
+\end{enumerate}
+
+\textbf{Critério de Parada:} A iteração é interrompida quando $|x_{k+1} - x_k| < \epsilon$, onde $\epsilon$ é uma tolerância predefinida.
+
+\section*{Exemplo: Método do Ponto Fixo}
+Dado um problema de encontrar a raiz da equação $f(x) = 0$, podemos reescrever no $f(x) = 0$ na forma $x = g(x)$. Suponha $f(x) = x^2 - 3$. Uma escolha para $g(x)$ pode ser:
+
+\[
+g(x) = \sqrt{3}.
+\]
+
+A iteração será então:
+\[
+x_{k+1} = \sqrt{3}.
+\]
+
+\textbf{Nota:} Escolher uma $g(x)$ apropriada é essencial para garantir a convergência.
+
+\section*{Exercícios}
+
+\subsection*{Exercício 1}
+Considere a equação $f(x) = x^3 - x - 1$.
+\begin{enumerate}
+    \item Reescreva a equação na forma $x = g(x)$ de três maneiras diferentes.
+    \item Determine se as funções $g(x)$ escolhidas são adequadas para a iteração linear no intervalo $[1, 2]$.
+    \item Execute a iteração linear usando uma das formas $g(x)$ com $x_0 = 1.5$ e tolência $\epsilon = 10^{-4}$.
+\end{enumerate}
+
+\subsection*{Exercício 2}
+Dado o sistema linear:
+\[
+\begin{aligned}
+3x + y &= 9, \\
+x - 4y &= -6,
+\end{aligned}
+\]
+resolva-o usando a iteração de Jacobi. Escolha $x_0 = 0$ e $y_0 = 0$ como aproximação inicial. Realize 5 iterações.
+
+\subsection*{Exercício 3}
+Para cada $g(x)$ abaixo, determine se a iteração $x_{k+1} = g(x_k)$ converge em $[0, 1]$:
+\begin{enumerate}
+    \item $g(x) = \frac{x^2 + 1}{2}$;
+    \item $g(x) = 1 - e^{-x}$;
+    \item $g(x) = \sin(x) + \frac{x}{2}$.
+\end{enumerate}
+
+\section*{Referências}
+\begin{itemize}
+    \item Burden, R. L., \& Faires, J. D. (2010). \textit{Numerical Analysis}. Cengage Learning.
+    \item Conte, S. D., \& de Boor, C. (1980). \textit{Elementary Numerical Analysis: An Algorithmic Approach}. McGraw-Hill.
+\end{itemize}
+
+\end{document}
