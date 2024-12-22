@@ -1,0 +1,80 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{multicol}
+\geometry{margin=1in}
+
+\title{Cálculo do Referencial de Frenet}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Questão 6: Cálculo do Referencial de Frenet}
+
+\subsection*{Curva 1: \mathbf{r}(t) = \langle t, \cos(t), \sin(t) \rangle}
+\paragraph{1. Vetor tangente unitário \mathbf{T}(t)}
+Derivando a curva:
+\[
+\mathbf{r}'(t) = \langle 1, -\sin(t), \cos(t) \rangle
+\]
+Calculando o módulo:
+\[
+\|\mathbf{r}'(t)\| = \sqrt{1^2 + (-\sin(t))^2 + (\cos(t))^2} = \sqrt{2}
+\]
+Portanto, o vetor tangente unitário é:
+\[
+\mathbf{T}(t) = \frac{\mathbf{r}'(t)}{\|\mathbf{r}'(t)\|} = \left\langle \frac{1}{\sqrt{2}}, \frac{-\sin(t)}{\sqrt{2}}, \frac{\cos(t)}{\sqrt{2}} \right\rangle
+\]
+Para t = \frac{\pi}{6}, substituímos:
+\[
+\sin\left(\frac{\pi}{6}\right) = \frac{1}{2}, \quad \cos\left(\frac{\pi}{6}\right) = \frac{\sqrt{3}}{2}
+\]
+\[
+\mathbf{T}\left(\frac{\pi}{6}\right) = \left\langle \frac{1}{\sqrt{2}}, \frac{-1/2}{\sqrt{2}}, \frac{\sqrt{3}/2}{\sqrt{2}} \right\rangle = \left\langle \frac{1}{\sqrt{2}}, -\frac{1}{2\sqrt{2}}, \frac{\sqrt{3}}{2\sqrt{2}} \right\rangle
+\]
+
+\paragraph{2. Vetor normal \mathbf{N}(t)}
+Derivamos \mathbf{T}(t):
+\[
+\mathbf{T}'(t) = \left\langle 0, \frac{-\cos(t)}{\sqrt{2}}, \frac{-\sin(t)}{\sqrt{2}} \right\rangle
+\]
+Calculando o módulo de \mathbf{T}'(t):
+\[
+\|\mathbf{T}'(t)\| = \sqrt{\left(\frac{-\cos(t)}{\sqrt{2}}\right)^2 + \left(\frac{-\sin(t)}{\sqrt{2}}\right)^2} = \sqrt{\frac{\cos^2(t) + \sin^2(t)}{2}} = \sqrt{\frac{1}{2}} = \frac{1}{\sqrt{2}}
+\]
+Portanto:
+\[
+\mathbf{N}(t) = \frac{\mathbf{T}'(t)}{\|\mathbf{T}'(t)\|} = \left\langle 0, -\cos(t), -\sin(t) \right\rangle
+\]
+Para t = \frac{\pi}{6}:
+\[
+\mathbf{N}\left(\frac{\pi}{6}\right) = \left\langle 0, -\frac{\sqrt{3}}{2}, -\frac{1}{2} \right\rangle
+\]
+
+\paragraph{3. Vetor binormal \mathbf{B}(t)}
+O vetor binormal é dado pelo produto vetorial:
+\[
+\mathbf{B}(t) = \mathbf{T}(t) \times \mathbf{N}(t)
+\]
+Calculamos:
+\[
+\mathbf{B}\left(\frac{\pi}{6}\right) = \left\langle \frac{1}{\sqrt{2}}, -\frac{1}{2\sqrt{2}}, \frac{\sqrt{3}}{2\sqrt{2}} \right\rangle \times \left\langle 0, -\frac{\sqrt{3}}{2}, -\frac{1}{2} \right\rangle
+\]
+Resolva o determinante para obter:
+\[
+\mathbf{B}\left(\frac{\pi}{6}\right) = \left\langle \dots, \dots, \dots \right\rangle
+\]
+
+\subsection*{Curva 2: \mathbf{r}(t) = \langle t^3, t, \sqrt{3}/2 \, t^2 \rangle}
+Repita os mesmos passos:
+
+1. Derive \mathbf{r}(t) para obter \mathbf{r}'(t).
+2. Normalize \mathbf{r}'(t) para encontrar \mathbf{T}(t).
+3. Derive \mathbf{T}(t), normalize para encontrar \mathbf{N}(t).
+4. Calcule \mathbf{B}(t) = \mathbf{T}(t) \times \mathbf{N}(t).
+
+\end{document}
