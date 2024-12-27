@@ -1,0 +1,56 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb}
+\usepackage{hyperref}
+
+\title{Aproximação da Função Gamma e Séries de Fourier}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Introdução}
+A função Gamma, \Gamma(x), é uma função contínua e suave, mas \textbf{não periódica}. Isso impede que ela seja representada diretamente por uma série de Fourier no sentido tradicional. Séries de Fourier são projetadas para aproximar funções periódicas, ou seja, funções que se repetem após um certo intervalo.
+
+Entretanto, existem abordagens alternativas que permitem aproximar a função Gamma usando conceitos relacionados a Fourier ou outras técnicas de expansão.
+
+\section*{Transformada de Fourier}
+Uma alternativa é utilizar a \textbf{transformada de Fourier}, que é aplicável a funções não periódicas. A transformada de Fourier permite representar uma função contínua f(x) em termos de frequências, mesmo que ela não seja periódica.
+
+Seja f(x) uma função não periódica. Sua transformada de Fourier F(k) é dada por:
+\[
+F(k) = \int_{-\infty}^{\infty} f(x) e^{-ikx} \, dx,
+\]
+e a reconstrução da função original pode ser feita usando a transformada inversa:
+\[
+f(x) = \frac{1}{2\pi} \int_{-\infty}^\infty F(k) e^{ikx} \, dk.
+\]
+
+A transformada de Fourier pode ser aplicada à função Gamma para analisá-la em termos de frequências.
+
+\section*{Série de Fourier em Intervalos Finitos}
+Outra abordagem é restringir a função Gamma a um intervalo finito e usar uma \textbf{série de Fourier} para aproximá-la dentro desse intervalo. Suponha que definimos a função Gamma no intervalo [0, T]. Nesse caso, ela pode ser aproximada como:
+\[
+f(x) = a_0 + \sum_{n=1}^\infty \left[ a_n \cos\left(\frac{2\pi n x}{T}\right) + b_n \sin\left(\frac{2\pi n x}{T}\right) \right],
+\]
+onde os coeficientes a_0, a_n e b_n são calculados da forma usual para uma série de Fourier.
+
+Essa aproximação cria uma função periódica que coincide com a função Gamma dentro do intervalo [0, T].
+
+\section*{Outras Séries de Aproximação}
+Se a intenção é aproximar a função Gamma sem impor periodicidade, podemos utilizar:
+\begin{itemize}
+    \item \textbf{Série de Taylor:} Aproxima a função Gamma em torno de um ponto específico x_0:
+\[
+    \Gamma(x) \approx \Gamma(x_0) + \Gamma'(x_0)(x - x_0) + \frac{\Gamma''(x_0)}{2}(x - x_0)^2 + \cdots
+\]
+    \item \textbf{Expansões de Padé:} Usam razões de polinômios para uma aproximação precisa em intervalos finitos.
+\end{itemize}
+
+\section*{Conclusão}
+Embora não seja possível criar uma série de Fourier que se aproxime da função Gamma de forma direta devido à sua natureza não periódica, é viável usar a transformada de Fourier ou restringir a função a intervalos finitos para aplicar uma série de Fourier. Além disso, técnicas como a série de Taylor ou a expansão de Padé oferecem aproximações eficazes.
+
+\end{document}
